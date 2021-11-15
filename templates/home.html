@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        {{ range .Todos }}
+        {{if .Iscompleted }}
+        <li><s>{{.Task}}</s></li>
+        {{else}}
+        <li>{{.Task}} 
+            <a href="/todos/complete/{{.ID}}">Mark Completed</a>
+            <a href="/todos/delete/{{.ID}}">Delete</a>
+            <a href="/todos/edit/{{.ID}}">edit</a></li>
+        {{end}}
+        {{end}}
+    </ul>
+    <a href="/todos/create">Add Task</a>
+</body>
+
+</html>
